@@ -1,0 +1,19 @@
+# Read the design
+read_verilog *.v
+# Synthesize the design
+# This synthesizes the top module; replace 'mips_32' with your module name if different
+synth -top mips_32
+
+# Optional: Optimize the design
+opt
+
+# Map to a specific technology library if required (e.g., for ASIC or FPGA)
+# techmap -map <technology_cells_file>.lib
+
+# Convert the design to a netlist format, e.g., Verilog or BLIF
+# For ASIC design, you might want a different format, adjust as needed
+write_json mips_32_netlist.json
+# write_blif mips_32_netlist.blif
+
+# The resulting netlist is saved as 'mips_32_netlist.v' in the current directory
+
